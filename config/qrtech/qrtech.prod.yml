@@ -47,7 +47,7 @@ qrtech:
       532: Subscriber exceeded allowed usage/frequency
       550: Other error
   mt:
-    url: http://localhost:50326/qr/mt/failed
+    url: http://funspaz.com/QRPartner_API/linkit360/insertContent.php
     username: kbgames
     timeout: 30
     rps: 30
