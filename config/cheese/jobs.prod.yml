@@ -1,0 +1,54 @@
+app_name: jobs
+
+server:
+  port: 50303
+
+jobs:
+  planned_enabled: false
+  injections_path: /var/www/xmp.linkit360.ru/web/injections
+  check_prefix: 92
+  callback_url: http://xmp.linkit360.ru/injection-jobs/callback
+
+metrics:
+  allowed_db_size: 100001838210
+  db:
+  - linkit_yondu
+  - linkit_cheese
+
+inmem_client:
+  timeout: 10
+
+publisher:
+  pending_buffer_path: /home/centos/linkit/jobs_pending.json
+  chan_capacity: 100
+  conn:
+    user: linkit
+    pass: dg-U_oHhy7-
+    host: localhost
+    port: 5672
+
+db:
+  conn_ttl: -1
+  max_open_conns: 15
+  max_idle_conns: 10
+  timeout: 30
+  name: linkit_cheese
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
+  port: 5432
+  host: linkit-prod.ceta2yrq1zco.ap-southeast-1.rds.amazonaws.com
+  ssl_mode: disable
+  table_prefix: xmp_
+
+db_slave:
+  conn_ttl: -1
+  max_open_conns: 15
+  max_idle_conns: 10
+  timeout: 30
+  name: linkit_cheese
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
+  port: 5432
+  host: linkit-prod.ceta2yrq1zco.ap-southeast-1.rds.amazonaws.com
+  ssl_mode: disable
+  table_prefix: xmp_

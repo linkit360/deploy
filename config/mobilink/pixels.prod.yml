@@ -1,0 +1,54 @@
+app_name: pixels
+
+server:
+  port: 50309
+  env: prod
+
+service:
+  queue:
+    name: pixels
+    prefetch_count: 10
+    threads_count: 10
+
+  delay: 1
+  api:
+    limit: 500
+    hours: 0
+
+inmem_client:
+  timeout: 10
+
+notifier:
+  queue:
+    pixels: pixels
+    pixel_sent: pixel_sent
+  rbmq:
+    conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 5672
+    chan_capacity: 10000
+    pending_buffer_path: /home/centos/linkit/pixels_pending.json
+
+consumer:
+  conn:
+    user: linkit
+    pass: dg-U_oHhy7-
+    host: localhost
+    port: 5672
+  reconnect_delay: 10
+
+db:
+  conn_ttl: -1
+  max_conns: 15
+  max_open_conns: 15
+  max_idle_conns: 10
+  timeout: 30
+  name: linkit_mobilink
+  user: linkit_mobilink
+  pass: A0kZN8pUAs63wePezz
+  port: 5432
+  host: linkit-mobilink.cb2q7f7mvbwr.ap-south-1.rds.amazonaws.com
+  ssl_mode: disable
+  table_prefix: xmp_

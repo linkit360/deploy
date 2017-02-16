@@ -1,0 +1,41 @@
+app_name: dispatcherd
+
+server:
+  port: 50300
+  path: /var/www/xmp.linkit360.ru/web/
+
+  sessions:
+    secret: rCs7h2h_NqB5Kx-
+    path: /
+    domain: platform.th.linkit360.ru
+    cookie_ttl: 3600
+    secure: false
+    http_only: false
+
+service:
+  redirect_on_gather_error: false
+  error_redirect_url: http://id.slypee.com
+  campaign_hash_length: 32
+  redirect_on_gather_error: false
+
+content_client:
+  dsn: localhost:50301
+  timeout: 10
+
+inmem_client:
+  port: 50307
+  timeout: 10
+
+notifier:
+  queues:
+    access_campaign: access_campaign
+    user_actions: user_actions
+
+  rbmq:
+    conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 5672
+    chan_capacity: 100
+    pending_buffer_path: /home/centos/linkit/dispatcherd_pending.json

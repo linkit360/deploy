@@ -1,0 +1,107 @@
+app_name: mt_manager
+
+server:
+  port: 50325
+
+inmem_client:
+  dsn: :50327
+  timeout: 10
+
+content_client:
+  dsn: :50322
+  timeout: 10
+
+
+service:
+  leveldb_file: /home/centos/linkit/mt_manager.ldb
+  queues:
+    pixels: qrtech_pixels
+    db_actions: qrtech_mt_manager
+    transactions_log: qrtech_transactions_log
+
+  mobilink:
+    enabled: false
+
+  yondu:
+    enabled: false
+    operator_name: yondu
+    operator_code: 51501
+    charge_on_rejected: true
+    texts:
+      rejected: "You already subscribed on this service."
+      rejected_charge: "You already subscribed on this service. Please find more games here: %s"
+      blacklisted: "Sorry, service not available."
+      postpaid: "Sorry, service not available."
+      unsubscribe: "You have been unsubscribed."
+
+  cheese:
+    enabled: false
+    operator_name: cheese
+    country_code: 66
+    mcc: 520
+    dtac_mnc: 05
+    ais_mnc: 01
+    trueh_mnc: 03
+    new:
+      name: cheese_mo
+      enabled: true
+      prefetch_count: 10
+      threads_count: 10
+
+  qrtech:
+    enabled: true
+    operator_name: qrtech
+    country_code: 66
+    mcc: 520
+    dtac_mnc: 05
+    ais_mnc: 01
+    trueh_mnc: 03
+    location: Asia/Bangkok
+    periodic:
+      enabled: false
+      fetch_limit: 10
+      period: 10
+      interval_type: min
+      failed_repeat_in_minutes: 15
+    charge: qrtech_mt
+    new:
+      name: qrtech_mo
+      enabled: true
+      prefetch_count: 10
+      threads_count: 10
+    dn:
+      name: qrtech_dn
+      enabled: true
+      prefetch_count: 10
+      threads_count: 10
+
+db:
+  conn_ttl: -1
+  max_open_conns: 15
+  max_idle_conns: 10
+  timeout: 30
+  name: linkit_qrtech
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
+  port: 5432
+  host: linkit-prod.ceta2yrq1zco.ap-southeast-1.rds.amazonaws.com
+  ssl_mode: disable
+  table_prefix: xmp_
+
+consumer:
+  conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 5672
+  binding_key: ""
+  reconnect_delay: 10
+
+publisher:
+  pending_buffer_path: /home/centos/linkit/mt_manager_pending.json
+  chan_capacity: 2000
+  conn:
+    user: linkit
+    pass: dg-U_oHhy7-
+    host: localhost
+    port: 5672

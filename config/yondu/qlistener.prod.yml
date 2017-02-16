@@ -1,0 +1,62 @@
+app_name: qlistener
+
+server:
+  port: 50304
+
+inmem_client:
+  port: 50307
+  timeout: 10
+
+service:
+  geoip_path: /home/centos/linkit/GeoLite2-City.mmdb
+  ua_parser_regexes_path: /home/centos/linkit/regexes.yaml
+  queues:
+    access_campaign:
+      name: access_campaign
+      prefetch_count: 10
+      threads_count: 10
+    content_sent:
+      name: content_sent
+      prefetch_count: 10
+      threads_count: 10
+    user_actions:
+      name: user_actions
+      prefetch_count: 10
+      threads_count: 10
+    transaction_log:
+      name: transaction_log
+      prefetch_count: 10
+      threads_count: 10
+    mt_manager:
+      name: mt_manager
+      prefetch_count: 10
+      threads_count: 10
+    pixel_sent:
+      name: pixel_sent
+      prefetch_count: 10
+      threads_count: 10
+    unique_urls:
+      name: unique_urls
+      prefetch_count: 10
+      threads_count: 10
+
+consumer:
+  conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 5672
+  binding_key: ""
+  reconnect_delay: 10
+
+db:
+  conn_ttl: -1
+  max_conns: 15
+  timeout: 30
+  name: linkit_yondu
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
+  port: 5432
+  host: linkit-prod.ceta2yrq1zco.ap-southeast-1.rds.amazonaws.com
+  ssl_mode: disable
+  table_prefix: xmp_

@@ -1,0 +1,25 @@
+app_name: contentd
+
+server:
+  rpc_port: 50321
+  http_port: 50322
+
+service:
+  retry_count: 10
+  unique_urls_salt: !&5x~_~R_-9Uri
+  queues:
+    unique_urls: qrtech_unique_urls
+
+inmem_client:
+  dsn: :50327
+  timeout: 10
+
+notifier:
+  pending_buffer_path: /home/centos/linkit/contentd_pending.json
+  rbmq:
+    conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 567
+    chan_capacity: 100

@@ -1,0 +1,77 @@
+metric_instance_prefix: ph_yondu
+app_name: qlistener
+
+server:
+  port: 50324
+
+inmem_client:
+  dsn: :50327
+  timeout: 10
+
+service:
+  geoip_path: /home/centos/linkit/GeoLite2-City.mmdb
+  ua_parser_regexes_path: /home/centos/linkit/regexes.yaml
+  queues:
+    access_campaign:
+      enabled: true
+      name: qrtech_access_campaign
+      prefetch_count: 10
+      threads_count: 10
+    content_sent:
+      enabled: true
+      name: qrtech_content_sent
+      prefetch_count: 10
+      threads_count: 10
+    user_actions:
+      enabled: true
+      name: qrtech_user_actions
+      prefetch_count: 10
+      threads_count: 10
+    transaction_log:
+      enabled: true
+      name: qrtech_transaction_log
+      prefetch_count: 10
+      threads_count: 10
+    mt_manager:
+      enabled: true
+      name: qrtech_mt_manager
+      prefetch_count: 10
+      threads_count: 10
+    pixel_sent:
+      enabled: true
+      name: qrtech_pixel_sent
+      prefetch_count: 10
+      threads_count: 10
+    unique_urls:
+      enabled: true
+      name: qrtech_unique_urls
+      prefetch_count: 10
+      threads_count: 10
+    redirect: 
+      enabled: true
+      name: qrtech_traffic_redirects
+      prefetch_count: 10
+      threads_count: 10
+
+
+consumer:
+  conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 5672
+  binding_key: ""
+  reconnect_delay: 10
+
+db:
+  conn_ttl: -1
+  max_conns: 15
+  timeout: 30
+  name: linkit_qrtech
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
+  port: 5432
+  host: linkit-prod.ceta2yrq1zco.ap-southeast-1.rds.amazonaws.com
+  ssl_mode: disable
+  table_prefix: xmp_
+
