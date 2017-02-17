@@ -3,6 +3,7 @@ app_name: dispatcherd
 server:
   port: 50300
   path: /var/www/xmp.linkit360.ru/web/
+  url: http://platform.th.linkit360.ru
 
   sessions:
     secret: rCs7h2h_NqB5Kx-
@@ -12,24 +13,41 @@ server:
     secure: false
     http_only: false
 
+inmem_client:
+  dsn: :50307
+  timeout: 10
+
+content_client:
+  dsn: :50301
+  timeout: 10
+
+redirect_client:
+  dsn: :50312
+  timeout: 10
+
 service:
   redirect_on_gather_error: false
   error_redirect_url: http://id.slypee.com
   campaign_hash_length: 32
-  redirect_on_gather_error: false
-
-content_client:
-  dsn: localhost:50301
-  timeout: 10
-
-inmem_client:
-  port: 50307
-  timeout: 10
+  not_found_redirect_url: http://platform.th.linkit360.ru/lp/cpa.k.ak100
+  start_new_subscription_on_click: false
+  rejected:
+    campaign_redirect_enabled: false
+    traffic_redirect_enabled: false
+  landings:
+    custom: false
+    beeline:
+      enabled: false
+    qrtech:
+      enabled: false
 
 notifier:
   queues:
     access_campaign: access_campaign
     user_actions: user_actions
+    content_sent: content_sent
+    pixel_sent: pixel_sent
+    traffic_redirects: traffic_redirects
 
   rbmq:
     conn:
