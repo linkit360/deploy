@@ -6,8 +6,13 @@ server:
   env: prod
 
 service:
-  queue:
+  pixels:
     name: qrtech_pixels
+    prefetch_count: 10
+    threads_count: 10
+
+  restore_pixels:
+    name: qrtech_restore_pixels
     prefetch_count: 10
     threads_count: 10
 

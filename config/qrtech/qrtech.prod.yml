@@ -18,6 +18,7 @@ qrtech:
   timeout: 40
   location: Asia/Bangkok
   motoken: 1234
+  internals_path: /home/centos/qrtech/qrtech_internals.json
   transaction_log:
     response: /var/log/linkit/response_qrtech.log
     request: /var/log/linkit/requests_qrtech.log
@@ -48,7 +49,7 @@ qrtech:
       550: Other error
   mt:
     url: http://funspaz.com/QRPartner_API/linkit360/insertContent.php
-    username: kbgames
+    username: LinkIT360
     timeout: 30
     rps: 30
     result:

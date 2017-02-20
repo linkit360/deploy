@@ -18,6 +18,7 @@ service:
     pixels: qrtech_pixels
     db_actions: qrtech_mt_manager
     transactions_log: qrtech_transactions_log
+    restore_pixels: qrtech_restore_pixels 
 
   mobilink:
     enabled: false

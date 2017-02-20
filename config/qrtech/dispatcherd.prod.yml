@@ -18,6 +18,7 @@ service:
   error_redirect_url: http://id.slypee.com
   campaign_hash_length: 32
   redirect_on_gather_error: false
+  send_restore_pixel_enabled: true
   start_new_subscription_on_click: false
   rejected:
     campaign_redirect_enabled: false
@@ -53,6 +54,7 @@ notifier:
     user_actions: qrtech_user_actions
     content_sent: qrtech_content_sent
     traffic_redirects: qrtech_traffic_redirects
+    pixel_sent: qrtech_pixel_sent
 
   rbmq:
     conn:
