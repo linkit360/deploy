@@ -16,15 +16,15 @@ metrics:
   - linkit_qrtech
 
 inmem_client:
-  dsn: 50327
+  dsn: :50327
   timeout: 10
 
 content_client:
-  dsn: 50322
+  dsn: :50322
   timeout: 10
 
 redirect_client:
-  dsn: 50312
+  dsn: :50312
   timeout: 10
 
 publisher:
