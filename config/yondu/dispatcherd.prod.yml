@@ -13,21 +13,30 @@ server:
     secure: false
     http_only: false
 
-service:
-  error_redirect_url: http://id.slypee.com
-  not_found_redirect_url: http://id.slypee.com
-  campaign_hash_length: 32
-  redirect_on_gather_error: false 
-  rejected:
-    enabled: false
-
 content_client:
-  dsn: localhost:50301
+  dsn: :50301
   timeout: 10
 
 inmem_client:
-  port: 50307
+  port: :50307
   timeout: 10
+
+service:
+  error_redirect_url: http://id.slypee.com
+  not_found_redirect_url: http://id.slypee.com
+  send_restore_pixel_enabled: true
+  start_new_subscription_on_click: false
+  campaign_hash_length: 32
+  redirect_on_gather_error: false 
+  rejected:
+    campaign_redirect_enabled: false
+    traffic_redirect_enabled: false
+  landings:
+    custom: false
+    beeline:
+      enabled: false
+    qrtech:
+      enabled: false
 
 notifier:
   queues:
