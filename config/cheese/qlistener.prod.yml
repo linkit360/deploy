@@ -52,7 +52,6 @@ service:
       prefetch_count: 10
       threads_count: 10
 
-
 consumer:
   conn:
       user: linkit

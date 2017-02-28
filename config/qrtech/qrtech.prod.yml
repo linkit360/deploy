@@ -27,11 +27,6 @@ qrtech:
     transaction_log: qrtech_transaction_log
     unsubscribe: qrtech_mt_manager
     mo: qrtech_mo
-    mt:
-      enabled: true
-      name: qrtech_mt
-      prefetch_count: 10
-      threads_count: 10
   dn:
     code:
       200: MT delivered successfully
@@ -52,6 +47,7 @@ qrtech:
     username: LinkIT360
     timeout: 30
     rps: 30
+    last_at_path: /home/centos/qrtech/qrtech_api.json
     result:
       # (positive value) AlphaNumeric string. (Refer as QR MT ID)
       -10: Invalid parameter msgid
