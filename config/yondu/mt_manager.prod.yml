@@ -17,14 +17,11 @@ service:
     db_actions: mt_manager
     transaction_log: transaction_log
 
-  mobilink:
-    enabled: false
-
   yondu:
     enabled: true
     operator_name: yondu
     operator_code: 51501
-    country_code: 515
+    country_code: 63
     charge_on_rejected: true
     location: Asia/Bangkok
     content:
