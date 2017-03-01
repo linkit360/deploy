@@ -23,7 +23,7 @@ service:
     operator_code: 51501
     country_code: 63
     charge_on_rejected: true
-    location: Asia/Bangkok
+    location: Asia/Manila
     content:
       send_enabled: true
       url: http://platform.ph.linkit360.ru/u/
@@ -35,6 +35,7 @@ service:
       unsubscribe: "You have been unsubscribed."
     periodic:
       enabled: true
+      period: 600
       fetch_limit: 10
       interval_type: min
       failed_repeat_in_minutes: 60

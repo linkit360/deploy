@@ -1,7 +1,11 @@
 .PHONY: build tag commit yondu cheese beeline qrtech
 
-# yondu 52.66.23.201
-# mobilink 52.66.23.201
+update:
+	scp -i ~/.ssh/mobilink_centos.pem centos@52.66.23.201:/home/centos/linkit/*prod.yml mobilink
+	scp -i ~/.ssh/yondu.pem  centos@52.76.153.135:/home/centos/linkit/*prod.yml yondu
+	scp -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67:/home/centos/linkit/*.prod.yml cheese
+	scp -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67:/home/centos/qrtech/*.prod.yml qrtech
+#	scp -i ~/.ssh/beeline.pem centos@52.59.112.128:/home/centos/linkit/*.prod.yml beeline
 
 build:
 	cd contentd/server; make rm; make build; cd - ; \
@@ -37,15 +41,15 @@ co:
 	cd qlistener; git checkout $1; cd - ;\
 
 tag:
-	cd contentd; git commit -a -m 'before qrtech' ; git push ; git tag -a v1.7 -m "before qrtech"; git push --tags; cd - ; \
-	cd dispatcherd; git commit -a -m 'before qrtech' ; git push ; git tag -a v1.7 -m "before qrtech"; git push --tags;  cd - ; \
-	cd inmem;  git commit -a -m 'before qrtech'; git push ; git tag -a v1.7 -m "before qrtech"; git push --tags; cd - ; \
-	cd jobs; git commit -a -m 'before qrtech' ; git push; git tag -a v1.7 -m "before qrtech"; git push --tags; cd - ; \
-	cd mt_manager;  git commit -a -m 'before qrtech'; git push ; git tag -a v1.7 -m "before qrtech"; git push --tags; cd - ;
-	cd operator; git commit -a -m 'before qrtech' ; git push ; git tag -a v1.7 -m "before qrtech"; git push --tags;cd - ;
-	cd pixels; git commit -a -m 'before qrtech' ; git push; git tag -a v1.7 -m "before qrtech"; git push --tags;cd - ;
-	cd qlistener; git commit -a -m 'before qrtech' ; git push; git tag -a v1.7 -m "before qrtech"; git push --tags; cd - ;\
-	cd utils;  git commit -a -m 'before qrtech' ; git push; git tag -a v1.7 -m "before qrtech"; git push --tags; cd - ;\
+	cd contentd; git commit -a -m 'unreg for cheese and qrtech' ; git push ; git tag -a 1.7.5 -m "unreg for cheese and qrtech"; git push --tags; cd - ; \
+	cd dispatcherd; git commit -a -m 'unreg for cheese and qrtech' ; git push ; git tag -a 1.7.5 -m "unreg for cheese and qrtech"; git push --tags;  cd - ; \
+	cd inmem;  git commit -a -m 'unreg for cheese and qrtech'; git push ; git tag -a 1.7.5 -m "unreg for cheese and qrtech"; git push --tags; cd - ; \
+	cd jobs; git commit -a -m 'unreg for cheese and qrtech' ; git push; git tag -a 1.7.5 -m "unreg for cheese and qrtech"; git push --tags; cd - ; \
+	cd mt_manager;  git commit -a -m 'unreg for cheese and qrtech'; git push ; git tag -a 1.7.5 -m "unreg for cheese and qrtech"; git push --tags; cd - ;
+	cd operator; git commit -a -m 'unreg for cheese and qrtech' ; git push ; git tag -a 1.7.5 -m "unreg for cheese and qrtech"; git push --tags;cd - ;
+	cd pixels; git commit -a -m 'unreg for cheese and qrtech' ; git push; git tag -a 1.7.5 -m "unreg for cheese and qrtech"; git push --tags;cd - ;
+	cd qlistener; git commit -a -m 'unreg for cheese and qrtech' ; git push; git tag -a 1.7.5 -m "unreg for cheese and qrtech"; git push --tags; cd - ;\
+	cd utils;  git commit -a -m 'unreg for cheese and qrtech' ; git push; git tag -a 1.7.5 -m "unreg for cheese and qrtech"; git push --tags; cd - ;\
 
 push:
 	cd contentd;  git push; cd - ; \
@@ -101,7 +105,7 @@ mobilinkm:
 
 
 yondu:
-	ssh -i ~/.ssh/yondu.pem centos@52.76.153.135  mv /home/centos/linkit/*-linux-amd64 /home/centos/linkit/prev/
+	# ssh -i ~/.ssh/yondu.pem centos@52.76.153.135  mv /home/centos/linkit/*-linux-amd64 /home/centos/linkit/prev/
 	scp -i ~/.ssh/yondu.pem ~/linkit/*-linux-amd64 centos@52.76.153.135:/home/centos/linkit/
 
 yonduop:
@@ -149,14 +153,18 @@ cheesed:
 	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/linkit/dispatcherd-linux-amd64 /home/centos/linkit/prev/
 	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/dispatcherd-linux-amd64 centos@52.220.98.67:/home/centos/linkit/
 
+cheeseq:
+	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/linkit/qlistener-linux-amd64 /home/centos/linkit/prev/
+	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/qlistener-linux-amd64 centos@52.220.98.67:/home/centos/linkit/
+
 
 qrtech:
 	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/*-linux-amd64 /home/centos/qrtech/prev/
 	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/*-linux-amd64 centos@52.220.98.67:/home/centos/qrtech/
 
 qrtechop:
-	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/cheese-linux-amd64 /home/centos/qrtech/prev/
-	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/cheese-linux-amd64 centos@52.220.98.67:/home/centos/qrtech/
+	# ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/cheese-linux-amd64 /home/centos/qrtech/prev/
+	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/qrtech-linux-amd64 centos@52.220.98.67:/home/centos/qrtech/
 
 qrtechi:
 	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/inmem-linux-amd64 /home/centos/qrtech/prev/
@@ -178,8 +186,9 @@ qrtechd:
 	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/dispatcherd-linux-amd64 /home/centos/qrtech/prev/
 	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/dispatcherd-linux-amd64 centos@52.220.98.67:/home/centos/qrtech/
 
-
-
+qrtechq:
+	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/qlistener-linux-amd64 /home/centos/qrtech/prev/
+	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/qlistener-linux-amd64 centos@52.220.98.67:/home/centos/qrtech/
 
 
 beeline:
@@ -201,3 +210,12 @@ beelined:
 beelinej:
 	ssh -i ~/.ssh/beeline.pem centos@52.59.112.128 mv /home/centos/linkit/jobs-linux-amd64 /home/centos/linkit/prev/
 	scp -i ~/.ssh/beeline.pem ~/linkit/jobs-linux-amd64 centos@52.59.112.128:/home/centos/linkit/
+
+
+diffconfig:
+#     diff -u contentd.prod.yml contentd.yml
+#     diff -u dispatcherd.prod.yml dispatcherd.yml
+#     diff -u cheese.prod.yml cheese.yml
+#     diff -u mt_manager.yml mt_manager.prod.yml
+#     diff -u pixels.prod.yml pixels.yml
+#      diff -u qlistener.prod.yml qlistener.yml
