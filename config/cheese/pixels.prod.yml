@@ -5,6 +5,7 @@ server:
   env: prod
 
 service:
+  setting_type: operator
   pixels:
     name: pixels
     prefetch_count: 10
