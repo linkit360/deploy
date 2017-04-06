@@ -1,15 +1,10 @@
 app_name: qlistener
 
-server: 
+server:
   port: 50304
 
 inmem_client:
   port: 50307
-  timeout: 10
-
-reporter_client:
-  enabled: true
-  dsn: :50315
   timeout: 10
 
 service:
@@ -19,40 +14,40 @@ service:
     access_campaign:
       enabled: true
       name: access_campaign
-      prefetch_count: 600
-      threads_count: 100
+      prefetch_count: 10
+      threads_count: 10
     content_sent:
       enabled: true
       name: content_sent
-      prefetch_count: 100
+      prefetch_count: 10
       threads_count: 10
     user_actions:
       enabled: true
       name: user_actions
-      prefetch_count: 1200
-      threads_count: 160
+      prefetch_count: 10
+      threads_count: 10
     transaction_log:
       enabled: true
       name: transaction_log
-      prefetch_count: 10000
-      threads_count: 1000
+      prefetch_count: 10
+      threads_count: 10
     mt_manager:
       enabled: true
       name: mt_manager
-      prefetch_count: 10000
-      threads_count: 1000
+      prefetch_count: 10
+      threads_count: 10
     pixel_sent:
       enabled: true
       name: pixel_sent
-      prefetch_count: 100
+      prefetch_count: 10
       threads_count: 10
     unique_urls:
-      enabled: false
+      enabled: true
       name: unique_urls
       prefetch_count: 10
       threads_count: 10
     redirect:
-      enabled: true
+      enabled: false
       name: traffic_redirects
       prefetch_count: 10
       threads_count: 10
@@ -68,14 +63,13 @@ consumer:
 
 db:
   conn_ttl: -1
-  max_open_conns: 250
+  max_open_conns: 15
   max_idle_conns: 10
   timeout: 30
-  name: linkit_mobilink
-  user: linkit_mobilink
-  pass: A0kZN8pUAs63wePezz
+  name: linkit_beeline
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
   port: 5432
-  host: linkit-mobilink.cb2q7f7mvbwr.ap-south-1.rds.amazonaws.com
+  host: linkit.cz3twmoynbq5.eu-central-1.rds.amazonaws.com
   ssl_mode: disable
   table_prefix: xmp_
-

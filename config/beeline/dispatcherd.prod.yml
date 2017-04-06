@@ -1,39 +1,53 @@
 app_name: dispatcherd
 
-
-server: 
+server:
   port: 50300
-  url: http://platform.pk.linkit360.ru
   path: /var/www/xmp.linkit360.ru/web/
+  url: http://52.59.112.128
 
   sessions:
     secret: rCs7h2h_NqB5Kx-
     path: /
-    domain: platform.pk.linkit360.ru
-    cookie_ttl: 300
+    domain: 52.59.112.128
+    cookie_ttl: 3600
     secure: false
-    http_only: false 
-    key: sehB33772
+    http_only: false
+
+content_client:
+  dsn: :50301
+  timeout: 10
+
+inmem_client:
+  dsn: :50307
+  timeout: 10
+
+redirect_client:
+  dsn: :50312
+  timeout: 10
 
 service:
-  # error_redirect_url: http://pk.linkit360.ru/cpa.k.ak100
   error_redirect_url: http://id.slypee.com
-  not_found_redirect_url: http://platform.pk.linkit360.ru/lp/cpa.k.ak100
+  not_found_redirect_url: http://id.slypee.com
   campaign_hash_length: 32
-  redirect_on_gather_error: true
-  start_new_subscription_on_click: true
+  redirect_on_gather_error: false
+  send_restore_pixel_enabled:  false
+  start_new_subscription_on_click: false
   rejected:
     campaign_redirect_enabled: false
-    traffic_redirect_enabled: true
+    traffic_redirect_enabled: false
   landings:
-    custom: false
+    custom: true
     beeline:
-      enabled: false
-      session_path: /home/centos/linkit/beeline_session.json
+      enabled: true
       url: http://217.118.84.12:8888/CDP_WapTester/emulator
       timeout: 30
-      user: 1637572
-      pass: KhZbQo1n
+      auth:
+        user: 1637572
+        pass: KhZbQo1n
+    qrtech:
+      enabled: false
+      url: http://wap.funspaz.com/wap/partner/linkit360/ais_wap.php
+
 
 notifier:
   queues:
@@ -49,6 +63,5 @@ notifier:
       pass: dg-U_oHhy7-
       host: localhost
       port: 5672
-    chan_capacity: 10000
+    chan_capacity: 100
     pending_buffer_path: /home/centos/linkit/dispatcherd_pending.json
-

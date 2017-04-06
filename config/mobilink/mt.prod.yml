@@ -3,6 +3,11 @@ app_name: mt_manager
 server:
   port: 50305
 
+reporter_client:
+  enabled: true
+  dsn: :50315
+  timeout: 10
+
 service:
   queues:
     pixels: pixels

@@ -32,6 +32,8 @@ service:
   not_found_redirect_url: http://platform.th.linkit360.ru/lp/cpa.k.ak100
   start_new_subscription_on_click: false
   send_restore_pixel_enabled: true
+  country_code: 66 
+  operator_code: 52001
   rejected:
     campaign_redirect_enabled: false
     traffic_redirect_enabled: false

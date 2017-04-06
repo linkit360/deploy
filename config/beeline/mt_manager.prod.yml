@@ -1,0 +1,62 @@
+app_name: mt_manager
+
+server:
+  port: 50305
+
+service:
+  queues:
+    pixels: pixels
+    db_actions: mt_manager
+    transaction_log: transaction_log
+    restore_pixels: restore_pixels
+
+inmem_client:
+  dsn: :50307
+  timeout: 10
+
+content_client:
+  dsn: :50302
+  timeout: 10
+
+  mobilink:
+    enabled: false
+
+  yondu:
+    enabled: false
+    texts:
+      rejected: "You already subscribed on this service."
+      rejected_charge: "You already subscribed on this service. Please find more games here: %s"
+      blacklisted: "Sorry, service not available."
+      postpaid: "Sorry, service not available."
+      unsubscribe: "You have been unsubscribed."
+
+db:
+  conn_ttl: -1
+  max_open_conns: 15
+  max_idle_conns: 10
+  timeout: 30
+  name: linkit_beeline
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
+  port: 5432
+  host: linkit.cz3twmoynbq5.eu-central-1.rds.amazonaws.com
+  ssl_mode: disable
+  table_prefix: xmp_
+
+consumer:
+  conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 5672
+  binding_key: ""
+  reconnect_delay: 10
+
+publisher:
+  pending_buffer_path: /home/centos/linkit/mt_manager_pending.json
+  chan_capacity: 100
+  conn:
+    user: linkit
+    pass: dg-U_oHhy7-
+    host: localhost
+    port: 5672
