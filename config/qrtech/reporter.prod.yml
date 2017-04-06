@@ -1,8 +1,8 @@
 app_name: reporter
 
 server:
-  rpc_port: 50315
-  http_port: 50316
+  rpc_port: 50335
+  http_port: 50336
 
 collector:
   provider: cheese

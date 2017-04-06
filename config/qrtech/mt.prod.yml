@@ -11,6 +11,9 @@ content_client:
   dsn: :50322
   timeout: 10
 
+reporter_client:
+  dsn: :50335
+  timeout: 10
 
 service:
   leveldb_file: /home/centos/linkit/mt_manager.ldb

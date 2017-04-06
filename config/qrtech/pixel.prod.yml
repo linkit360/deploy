@@ -1,0 +1,63 @@
+metric_instance_prefix: ph_yondu1
+app_name: pixels
+
+server:
+  port: 50329
+  env: prod
+
+service:
+  pixels:
+    name: qrtech_pixels
+    prefetch_count: 10
+    threads_count: 10
+
+  restore_pixels:
+    name: qrtech_restore_pixels
+    prefetch_count: 10
+    threads_count: 10
+
+  delay: 1
+  api:
+    limit: 500
+    hours: 0
+
+inmem_client:
+  dsn: :50327
+  timeout: 10
+
+notifier:
+  queue:
+    pixels: qrtech_pixels
+    pixel_sent: qrtech_pixel_sent
+  rbmq:
+    conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 5672
+    chan_capacity: 10000
+    pending_buffer_path: /home/centos/linkit/pixels_pending.json
+
+consumer:
+  conn:
+    user: linkit
+    pass: dg-U_oHhy7-
+    host: localhost
+    port: 5672
+
+  queue_prefetch_count: 4
+  reconnect_delay: 10
+
+
+db:
+  conn_ttl: -1
+  max_open_conns: 15
+  max_idle_conns: 10
+  timeout: 30
+  name: linkit_qrtech
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
+  port: 5432
+  host: linkit-prod.ceta2yrq1zco.ap-southeast-1.rds.amazonaws.com
+  ssl_mode: disable
+  table_prefix: xmp_

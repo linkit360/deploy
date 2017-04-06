@@ -39,11 +39,16 @@ service:
     custom: true
     beeline:
       enabled: true
+      operator_code: 25099
+      country_code: 7
+      mo: beeline_mo 
+      session_path: /home/centos/linkit/beeline_session.json
       url: http://217.118.84.12:8888/CDP_WapTester/emulator
       timeout: 30
       auth:
         user: 1637572
         pass: KhZbQo1n
+
     qrtech:
       enabled: false
       url: http://wap.funspaz.com/wap/partner/linkit360/ais_wap.php

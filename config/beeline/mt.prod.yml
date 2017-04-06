@@ -3,13 +3,6 @@ app_name: mt_manager
 server:
   port: 50305
 
-service:
-  queues:
-    pixels: pixels
-    db_actions: mt_manager
-    transaction_log: transaction_log
-    restore_pixels: restore_pixels
-
 inmem_client:
   dsn: :50307
   timeout: 10
@@ -17,6 +10,17 @@ inmem_client:
 content_client:
   dsn: :50302
   timeout: 10
+
+reporter_client:
+  dsn: :50315
+  timeout: 10
+
+service:
+  queues:
+    pixels: pixels
+    db_actions: mt_manager
+    transaction_log: transaction_log
+    restore_pixels: restore_pixels
 
   mobilink:
     enabled: false
@@ -30,6 +34,22 @@ content_client:
       postpaid: "Sorry, service not available."
       unsubscribe: "You have been unsubscribed."
 
+  beeline:
+    enabled: true
+    operator_name: beeline
+    mccmnc: 25099
+    country_code: 7
+    new:
+      name: beeline_mo
+      enabled: true
+      prefetch_count: 10
+      threads_count: 10
+    smpp:
+      name: beeline_smpp
+      prefetch_count: 10
+      enabled: true
+      threads_count: 10
+  
 db:
   conn_ttl: -1
   max_open_conns: 15
