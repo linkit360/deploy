@@ -4,7 +4,6 @@ server:
   port: 50305
 
 reporter_client:
-  enabled: true
   dsn: :50315
   timeout: 10
 

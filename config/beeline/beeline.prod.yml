@@ -1,4 +1,4 @@
-app_name: telco
+app_name: beeline
 
 server:
   port: 50306

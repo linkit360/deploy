@@ -5,7 +5,7 @@ server:
   http_port: 50336
 
 collector:
-  provider: cheese
+  provider: qrtech
 
 db:
   conn_ttl: -1
