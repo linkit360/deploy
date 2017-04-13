@@ -22,18 +22,22 @@ service:
   campaign_hash_length: 32
   redirect_on_gather_error: true
   start_new_subscription_on_click: true
+  operator_code: 41001
+  country_code: 92
   rejected:
     campaign_redirect_enabled: false
     traffic_redirect_enabled: true
   landings:
-    custom: false
-    beeline:
-      enabled: false
-      session_path: /home/centos/linkit/beeline_session.json
-      url: http://217.118.84.12:8888/CDP_WapTester/emulator
-      timeout: 30
-      user: 1637572
-      pass: KhZbQo1n
+    custom: true
+    mobilink:
+      enabled: true
+      queues:
+        sms: mobilink_sms_requests
+        mo: mobilink_new_subscriptions
+      cache:
+        expiration_hours: 24
+        cleanup_interval: 1
+        file_path: /home/centos/linkit/dispatcher.cache  
 
 notifier:
   queues:
