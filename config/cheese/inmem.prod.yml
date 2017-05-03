@@ -5,6 +5,7 @@ server:
   http_port: 50308
 
 service:
+  provider_name: cheese
   unique_days: 10
   static_path: /var/www/xmp.linkit360.ru/web/
   redirect_url: http://id.slypee.com

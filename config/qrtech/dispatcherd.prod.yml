@@ -36,7 +36,7 @@ service:
       content_url: http://platform.th.linkit360.ru/qr/get
       ais_url: http://wap.funspaz.com/wap/partner/linkit360/ais_wap.php
       dtac_url: http://wap.funspaz.com/wap/partner/linkit360/aoc_dtac.php 
-      autoclick_url: http://id.slypee.com
+      autoclick_url: http://blackqrt.appspot.com/process.php
       aes_key: 5432104769mb8552
       country_code:  66
       dtac_operator_code: 52005

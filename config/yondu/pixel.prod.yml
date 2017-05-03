@@ -2,14 +2,14 @@ app_name: pixels
 
 server:
   port: 50309
-  env: prod
+  env: dev
 
 service:
-  setting_type: campaign_operator
   pixels:
     name: pixels
     prefetch_count: 10
     threads_count: 10
+
   restore_pixels:
     name: restore_pixels
     prefetch_count: 10
@@ -38,14 +38,12 @@ notifier:
     pending_buffer_path: /home/centos/linkit/pixels_pending.json
 
 consumer:
+  reconnect_delay: 10
   conn:
     user: linkit
     pass: dg-U_oHhy7-
     host: localhost
     port: 5672
-
-  queue_prefetch_count: 4
-  reconnect_delay: 10
 
 
 db:
@@ -53,7 +51,7 @@ db:
   max_open_conns: 15
   max_idle_conns: 10
   timeout: 30
-  name: linkit_cheese
+  name: linkit_yondu
   user: linkit
   pass: E0kZN8pUAs63wePepf
   port: 5432

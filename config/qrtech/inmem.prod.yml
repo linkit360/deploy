@@ -5,6 +5,7 @@ server:
   http_port: 50328
 
 service:
+  provider_name: qrtech
   unique_days: 10
   static_path: /var/www/xmp.linkit360.ru/web/
   redirect_url: http://id.slypee.com
