@@ -11,15 +11,14 @@ service:
     unique_urls: unique_urls
 
 inmem_client:
+  dsn: :50307
   timeout: 10
 
 notifier:
-  queues:
-    content_sent: content_sent
-  rbmq:
-    conn:
-      user: linkit
-      pass: dg-U_oHhy7-
-      host: localhost
-      port: 5672
-    chan_capacity: 10000
+  conn:
+    user: linkit
+    pass: dg-U_oHhy7-
+    host: localhost
+    port: 5672
+  reconnect_delay: 10
+  chan_capacity: 10000

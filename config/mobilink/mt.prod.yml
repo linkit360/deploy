@@ -3,6 +3,14 @@ app_name: mt_manager
 server:
   port: 50305
 
+inmem_client:
+  dsn: :50307
+  timeout: 10
+
+content_client:
+  dsn: :50302
+  timeout: 10
+
 reporter_client:
   dsn: :50315
   timeout: 10
@@ -12,23 +20,28 @@ service:
     pixels: pixels
     db_actions: mt_manager
     transaction_log: transaction_log
+    restore_pixels: restore_pixels
 
   mobilink:
     enabled: true
     operator_name: mobilink
     operator_code: 41001
     rejected_hours: 720
-    retries:
-      enabled: true
-      period: 60
-      queue_free_size: 2500
-      fetch_limit: 10
-      paid_once_hours: 24
-      check_queues_free:
-      - "mobilink_requests"
-      - "mt_manager"
+
+    channel:
+      enabled: false
+      url: http://pk2.slypee.com/support/notify.php
+
     periodic:
       enabled: false
+      period: 1
+      fetch_limit: 10
+
+    content:
+      enabled: false
+      fetch_period_seconds: 10
+      fetch_limit: 1
+
     new:
       name: mobilink_new_subscriptions
       enabled: true
@@ -39,18 +52,14 @@ service:
       enabled: true
       prefetch_count: 100
       threads_count: 10
-    responses:
+    sms: mobilink_sms_requests
+    charge_req: mobilink_requests
+
+    charge_resp:
       name: mobilink_responses
       enabled: true
       prefetch_count: 100
       threads_count: 10
-    sms_responses:
-      name: mobilink_sms_responses
-      enabled: true
-      prefetch_count: 100
-      threads_count: 10
-    requests: mobilink_requests
-    sms_requests: mobilink_requests
 
   yondu:
     enabled: false
@@ -76,7 +85,7 @@ db:
   max_open_conns: 35
   max_idle_conns: 35
   timeout: 30
-  name: linkit_mobilink
+  name: pk_mobilink
   user: linkit_mobilink
   pass: A0kZN8pUAs63wePezz
   port: 5432
@@ -94,7 +103,6 @@ consumer:
   reconnect_delay: 10
 
 publisher:
-  pending_buffer_path: /home/centos/linkit/mt_manager_pending.json
   chan_capacity: 100000
   rbmq:
     conn:

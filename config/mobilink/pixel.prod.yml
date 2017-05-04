@@ -20,6 +20,7 @@ service:
     hours: 0
 
 inmem_client:
+  port: 50307
   timeout: 10
 
 notifier:
@@ -33,7 +34,6 @@ notifier:
       host: localhost
       port: 5672
     chan_capacity: 10000
-    pending_buffer_path: /home/centos/linkit/pixels_pending.json
 
 consumer:
   conn:
@@ -49,7 +49,7 @@ db:
   max_open_conns: 15
   max_idle_conns: 10
   timeout: 30
-  name: linkit_mobilink
+  name: pk_mobilink
   user: linkit_mobilink
   pass: A0kZN8pUAs63wePezz
   port: 5432

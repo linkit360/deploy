@@ -70,7 +70,7 @@ db:
   max_open_conns: 250
   max_idle_conns: 10
   timeout: 30
-  name: linkit_mobilink
+  name: pk_mobilink
   user: linkit_mobilink
   pass: A0kZN8pUAs63wePezz
   port: 5432

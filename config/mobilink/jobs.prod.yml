@@ -14,12 +14,12 @@ metrics:
   allowed_db_size: 1080018382100
   db:
   - linkit_mobilink
+  - pk_mobilink
 
 inmem_client:
   timeout: 10
 
 publisher:
-  pending_buffer_path: /home/centos/linkit/jobs_pending.json
   chan_capacity: 100
   conn:
     user: linkit
@@ -32,7 +32,7 @@ db:
   max_open_conns: 10
   max_idle_conns: 10
   timeout: 30
-  name: linkit_mobilink
+  name: pk_mobilink
   user: linkit_mobilink
   pass: A0kZN8pUAs63wePezz
   port: 5432
@@ -45,7 +45,7 @@ db_slave:
   max_open_conns: 10
   max_idle_conns: 10
   timeout: 30
-  name: linkit_mobilink
+  name: pk_mobilink
   user: linkit_mobilink
   pass: A0kZN8pUAs63wePezz
   port: 5432

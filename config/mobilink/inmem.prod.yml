@@ -1,7 +1,13 @@
 app_name: inmem
+
 server:
   rpc_port: 50307
   http_port: 50308
+
+acceptor_client:
+  enabled: true
+  dsn: 52.220.50.252:50318
+  timeout: 10
 
 service:
   provider_name: mobilink
@@ -9,10 +15,15 @@ service:
   operator_code: 41001
   static_path: /var/www/xmp.linkit360.ru/web/
   redirect_url: http://id.slypee.com
+  campaign_web_hook: http://localhost:50300/updateTemplates
+
+  blacklist:
+    enabled: false
+    period: 60
 
   enabled:
-    destinations: true
-    redirect_stats_count: true
+    destinations: false
+    redirect_stats_count: false
 
   private_networks:
   - start: 10.0.0.0
@@ -32,7 +43,7 @@ db:
   conn_ttl: -1
   max_conns: 15
   timeout: 30
-  name: linkit_mobilink
+  name: pk_mobilink
   user: linkit_mobilink
   pass: A0kZN8pUAs63wePezz
   port: 5432
