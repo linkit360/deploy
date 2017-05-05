@@ -2,7 +2,6 @@ app_name: qrtech
 
 server:
   port: 50326
-  threads_count: 1
 
 inmem_client:
   dsn: :50327

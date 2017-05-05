@@ -42,7 +42,7 @@ service:
     mobilink:
       enabled: true
       queues:
-        sms: mobilink_sms_requests
+        responses: mobilink_responses
         mo: mobilink_new_subscriptions
       cache:
         expiration_hours: 24

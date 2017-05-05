@@ -13,6 +13,18 @@ server:
     secure: false
     http_only: false
 
+inmem_client:
+  dsn: :50327
+  timeout: 10
+
+content_client:
+  dsn: :50321
+  timeout: 10
+
+redirect_client:
+  dsn: :50332
+  timeout: 10
+
 service:
   redirect_on_gather_error: false
   error_redirect_url: http://id.slypee.com
@@ -42,17 +54,6 @@ service:
       dtac_operator_code: 52005
       ais_operator_code:  52001
 
-inmem_client:
-  dsn: :50327
-  timeout: 10
-
-content_client:
-  dsn: :50321
-  timeout: 10
-
-redirect_client:
-  dsn: :50332
-  timeout: 10
 
 
 notifier:

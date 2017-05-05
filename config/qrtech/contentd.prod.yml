@@ -15,11 +15,9 @@ inmem_client:
   timeout: 10
 
 notifier:
-  pending_buffer_path: /home/centos/linkit/contentd_pending.json
-  rbmq:
-    conn:
-      user: linkit
-      pass: dg-U_oHhy7-
-      host: localhost
-      port: 567
-    chan_capacity: 100
+  conn:
+    user: linkit
+    pass: dg-U_oHhy7-
+    host: localhost
+    port: 5672
+  chan_capacity: 100

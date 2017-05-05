@@ -1,4 +1,4 @@
-app_name: mt_manager
+app_name: mt
 
 server:
   port: 50305
@@ -29,12 +29,12 @@ service:
     rejected_hours: 720
 
     channel:
-      enabled: false
+      enabled: true
       url: http://pk2.slypee.com/support/notify.php
 
     periodic:
-      enabled: false
-      period: 1
+      enabled: true
+      period: 600
       fetch_limit: 10
 
     content:
