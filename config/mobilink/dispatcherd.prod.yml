@@ -9,7 +9,7 @@ server:
     secret: rCs7h2h_NqB5Kx-
     path: /
     domain: platform.pk.linkit360.ru
-    cookie_ttl: 300
+    cookie_ttl: 1036800
     secure: false
     http_only: false 
     key: sehB33772

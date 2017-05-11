@@ -18,8 +18,17 @@ service:
   campaign_web_hook: http://localhost:50300/updateTemplates
 
   blacklist:
-    enabled: false
-    period: 60
+    enabled: true
+    from_control_panel: false
+    period: 3600
+
+  contents:
+    enabled: true
+    from_control_panel: false
+
+  services:
+    enabled: true
+    from_control_panel: false
 
   enabled:
     destinations: false

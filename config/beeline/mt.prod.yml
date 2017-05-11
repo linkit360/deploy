@@ -1,4 +1,4 @@
-app_name: mt_manager
+app_name: mt
 
 server:
   port: 50305
