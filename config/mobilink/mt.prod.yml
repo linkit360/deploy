@@ -34,12 +34,12 @@ service:
 
     periodic:
       enabled: true
-      period: 600
+      period: 3600
       fetch_limit: 10
 
     content:
-      enabled: false
-      fetch_period_seconds: 10
+      enabled: true
+      fetch_period_seconds: 3600
       fetch_limit: 1
 
     new:
