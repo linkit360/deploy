@@ -35,12 +35,13 @@ service:
     periodic:
       enabled: true
       period: 3600
-      fetch_limit: 10
+      fetch_limit: 100
 
     content:
       enabled: true
       fetch_period_seconds: 3600
-      fetch_limit: 1
+      fetch_limit: 100
+      url: http://platform.pk.linkit360.ru/u/
 
     new:
       name: mobilink_new_subscriptions
@@ -52,6 +53,7 @@ service:
       enabled: true
       prefetch_count: 100
       threads_count: 10
+
     sms: mobilink_sms_requests
     charge_req: mobilink_requests
 
