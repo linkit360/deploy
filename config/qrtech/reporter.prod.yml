@@ -6,7 +6,7 @@ server:
 
 collector:
   provider: qrtech
-
+  state_config_file_path: /home/centos/qrtech/reporter.json
 db:
   conn_ttl: -1
   max_open_conns: 15

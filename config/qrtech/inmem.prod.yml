@@ -20,6 +20,14 @@ service:
     enabled: false
     period: 60
 
+  contents:
+    enabled: true 
+    from_control_panel: false
+  
+  services:
+    enabled: true 
+    from_control_panel: false
+  
   enabled:
     destinations: false
     redirect_stats_count: false

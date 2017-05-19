@@ -14,6 +14,7 @@ content_client:
 reporter_client:
   dsn: :50315
   timeout: 10
+  state_config_file_path: /home/centos/linkit/mt_reporter.json
 
 service:
   queues:

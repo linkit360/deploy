@@ -47,7 +47,7 @@ service:
       prefetch_count: 100
       threads_count: 10
     unique_urls:
-      enabled: false
+      enabled: true
       name: unique_urls
       prefetch_count: 10
       threads_count: 10

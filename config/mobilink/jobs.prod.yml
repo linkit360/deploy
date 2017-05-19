@@ -4,7 +4,7 @@ server:
   port: 50303
 
 jobs:
-  planned_enabled: false
+  planned_enabled: true
   injections_path: /var/www/xmp.linkit360.ru/web/injections
   check_prefix: 92
   callback_url: http://xmp.linkit360.ru/injection-jobs/callback
@@ -49,6 +49,6 @@ db_slave:
   user: linkit_mobilink
   pass: A0kZN8pUAs63wePezz
   port: 5432
-  host: mobilink-slave-1.cb2q7f7mvbwr.ap-south-1.rds.amazonaws.com
+  host: linkit-mobilink.cb2q7f7mvbwr.ap-south-1.rds.amazonaws.com 
   ssl_mode: disable
   table_prefix: xmp_

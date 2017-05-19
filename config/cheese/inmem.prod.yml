@@ -9,6 +9,23 @@ service:
   unique_days: 10
   static_path: /var/www/xmp.linkit360.ru/web/
   redirect_url: http://id.slypee.com
+
+  blacklist:
+    enabled: false
+    period: 60
+
+  contents:
+    enabled: true
+    from_control_panel: false
+
+  services:
+    enabled: true
+    from_control_panel: false
+
+  enabled:
+    destinations: false
+    redirect_stats_count: false
+
   private_networks:
   - start: 10.0.0.0
     end: 10.255.255.255
