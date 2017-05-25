@@ -16,6 +16,10 @@ service:
   geoip_path: /home/centos/linkit/GeoLite2-City.mmdb
   ua_parser_regexes_path: /home/centos/linkit/regexes.yaml
   queues:
+    reporter_hit: qrtech_reporter_hit
+    reporter_pixel: qrtech_reporter_pixel
+    reporter_transaction: qrtech_reporter_transaction
+    reporter_outflow: qrtech_reporter_outflow
     access_campaign:
       enabled: true
       name: qrtech_access_campaign
@@ -57,7 +61,6 @@ service:
       prefetch_count: 10
       threads_count: 10
 
-
 consumer:
   conn:
       user: linkit
@@ -66,6 +69,15 @@ consumer:
       port: 5672
   binding_key: ""
   reconnect_delay: 10
+
+notifier:
+  rbmq:
+    conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 5672
+    chan_capacity: 100
 
 db:
   conn_ttl: -1

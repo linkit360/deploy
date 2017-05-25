@@ -2,8 +2,6 @@
 
 set -e
 
-#sed -i "s/%VERSION%/$(VERSION)/g" /home/centos/linkit360/go-utils/metrics/metrics.go;
-
 build() {
     cd $1;
 
@@ -21,13 +19,12 @@ build() {
 
 build go-contentd/server contentd;
 build go-dispatcherd dispatcherd ;
-build go-inmem/server inmem;
+build go-mid/server mid;
 build go-jobs jobs;
 build go-mt mt;
 build go-partners/server partners;
 build go-pixel pixel;
 build go-qlistener qlistener;
-build go-reporter/server reporter;
 build go-operator/ph/yondu yondu;
 build go-operator/pk/mobilink mobilink;
 build go-operator/ru/beeline beeline;

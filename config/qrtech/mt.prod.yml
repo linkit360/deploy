@@ -22,6 +22,8 @@ service:
     db_actions: qrtech_mt_manager
     transactions_log: qrtech_transactions_log
     restore_pixels: qrtech_restore_pixels 
+    reporter_transaction: qrtech_reporter_transaction
+    reporter_mo: qrtech_reporter_mo
 
   qrtech:
     enabled: true
