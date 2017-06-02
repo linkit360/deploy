@@ -3,7 +3,7 @@ app_name: qrtech
 server:
   port: 50326
 
-inmem_client:
+mid_client:
   dsn: :50327
   timeout: 10
 
@@ -17,7 +17,7 @@ qrtech:
   timeout: 40
   location: Asia/Bangkok
   motoken: qny6qv3sfqhkixjcpe
-  internals_path: /home/centos/qrtech/qrtech_internals.json
+  mt_path: /home/centos/qrtech/mt_path.json
   transaction_log:
     response: /var/log/linkit/response_qrtech.log
     request: /var/log/linkit/requests_qrtech.log

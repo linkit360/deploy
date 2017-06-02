@@ -3,7 +3,7 @@ app_name: mt
 server:
   port: 50305
 
-inmem_client:
+mid_client:
   dsn: :50307
   timeout: 10
 
@@ -33,12 +33,12 @@ service:
       url: http://pk2.slypee.com/support/notify.php
 
     periodic:
-      enabled: true
+      enabled: false
       period: 3600
       fetch_limit: 100
 
     content:
-      enabled: true
+      enabled: false
       fetch_period_seconds: 3600
       fetch_limit: 100
       url: http://platform.pk.linkit360.ru/u/

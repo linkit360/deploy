@@ -4,6 +4,10 @@ server:
   rpc_port: 50301
   http_port: 50302
 
+mid_client:
+  dsn: :50307
+  timeout: 10
+
 service:
   retry_count: 10
   unique_urls_salt: !&5x~_~R_-9Uri

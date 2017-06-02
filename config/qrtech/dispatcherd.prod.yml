@@ -13,7 +13,7 @@ server:
     secure: false
     http_only: false
 
-inmem_client:
+mid_client:
   dsn: :50327
   timeout: 10
 
@@ -71,4 +71,3 @@ notifier:
       host: localhost
       port: 5672
     chan_capacity: 100
-    pending_buffer_path: /home/centos/linkit/dispatcherd_pending.json

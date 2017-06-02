@@ -3,14 +3,9 @@ app_name: qlistener
 server:
   port: 50324
 
-inmem_client:
+mid_client:
   dsn: :50327
   timeout: 10
-
-reporter_client:
-  dsn: :50335
-  timeout: 10
-  state_config_file_path: /home/centos/qrtech/qlistener_reporter.json
 
 service:
   geoip_path: /home/centos/linkit/GeoLite2-City.mmdb

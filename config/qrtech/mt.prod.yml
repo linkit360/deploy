@@ -3,18 +3,13 @@ app_name: mt
 server:
   port: 50325
 
-inmem_client:
+mid_client:
   dsn: :50327
   timeout: 10
 
 content_client:
   dsn: :50322
   timeout: 10
-
-reporter_client:
-  dsn: :50335
-  timeout: 10
-  state_config_file_path: /home/centos/qrtech/mt_reporter.json
 
 service:
   queues:

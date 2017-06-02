@@ -20,7 +20,7 @@ service:
     limit: 500
     hours: 0
 
-inmem_client:
+mid_client:
   dsn: :50327
   timeout: 10
 

@@ -3,21 +3,22 @@ app_name: jobs
 server:
   port: 50303
 
-jobs:
-  planned_enabled: true
-  injections_path: /var/www/xmp.linkit360.ru/web/injections
-  check_prefix: 92
-  callback_url: http://xmp.linkit360.ru/injection-jobs/callback
-  log_path: /var/log/linkit/
-
 metrics:
   allowed_db_size: 1080018382100
   db:
   - linkit_mobilink
   - pk_mobilink
 
-inmem_client:
+mid_client:
   timeout: 10
+
+jobs:
+  planned_enabled: true
+  planned_period_minutes: 2
+  injections_path: /var/www/xmp.linkit360.ru/web/injections
+  check_prefix: 92
+  callback_url: http://xmp.linkit360.ru/injection-jobs/callback
+  log_path: /var/log/linkit/
 
 publisher:
   chan_capacity: 100
