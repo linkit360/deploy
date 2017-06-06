@@ -1,0 +1,96 @@
+app_name: mid
+
+server:
+  rpc_port: 50307
+  http_port: 50308
+
+xmp_api:
+  enabled: true
+  dsn: 52.220.50.252:50318
+  timeout: 10
+  instance_id: 299a3335-6b05-4613-8fd9-0dbfb94db6ee 
+
+service:
+  state_file_path: /home/centos/linkit/mid.state.json
+  unique_days: 10
+  static_path: /var/www/xmp.linkit360.ru/web/
+  region: ap-southeast-1
+
+  queue:
+    reporter_hit:
+      enabled: true
+      name: reporter_hit
+      prefetch_count: 10
+      threads_count: 10
+
+    reporter_transaction:
+      enabled: true
+      name: reporter_transaction
+      prefetch_count: 10
+      threads_count: 10
+
+    reporter_outflow:
+      enabled: true
+      name: reporter_outflow
+      prefetch_count: 10
+      threads_count: 10
+
+    reporter_pixel:
+      enabled: true
+      name: reporter_pixel
+      prefetch_count: 10
+      threads_count: 10
+
+  service:
+    from_control_panel: false
+
+  campaign:
+    from_control_panel: false
+    webhook: http://localhost:50300/updateTemplates
+    landing_path: /var/www/xmp.linkit360.ru/web/
+    bucket: xmp-lp
+    download_timeout: 10m
+
+  content:
+    enabled: true
+    from_control_panel: false
+    content_path: /var/www/xmp.linkit360.ru/web/
+    region: ap-southeast-1
+    bucket: xmp-content
+    download_timeout: 10m
+
+  blacklist:
+    from_control_panel: false
+
+  pixel:
+    from_control_panel: false
+
+  operator:
+    from_control_panel: false
+
+  enabled:
+    reporter: true
+    destinations: false
+    redirect_stats_count: false
+
+db:
+  conn_ttl: -1
+  max_open_conns: 15
+  max_idle_conns: 10
+  timeout: 30
+  name: linkit_cheese
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
+  port: 5432
+  host: linkit-prod.ceta2yrq1zco.ap-southeast-1.rds.amazonaws.com
+  ssl_mode: disable
+  table_prefix: xmp_
+
+consumer:
+  conn:
+      user: linkit
+      pass: dg-U_oHhy7-
+      host: localhost
+      port: 5672
+  binding_key: ""
+  reconnect_delay: 10w

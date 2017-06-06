@@ -29,7 +29,7 @@ service:
   redirect_on_gather_error: false
   error_redirect_url: http://id.slypee.com
   campaign_hash_length: 32
-  not_found_redirect_url: http://platform.th.linkit360.ru/lp/cpa.k.ak100
+  not_found_redirect_url: http://xmp.linkit360.ru/aoc 
   start_new_subscription_on_click: false
   send_restore_pixel_enabled: true
   country_code: 66 
