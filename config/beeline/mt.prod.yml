@@ -3,16 +3,12 @@ app_name: mt
 server:
   port: 50305
 
-inmem_client:
+mid_client:
   dsn: :50307
   timeout: 10
 
 content_client:
   dsn: :50302
-  timeout: 10
-
-reporter_client:
-  dsn: :50315
   timeout: 10
 
 service:
@@ -21,18 +17,13 @@ service:
     db_actions: mt_manager
     transaction_log: transaction_log
     restore_pixels: restore_pixels
+    reporter_transaction: reporter_transaction
 
   mobilink:
     enabled: false
 
   yondu:
     enabled: false
-    texts:
-      rejected: "You already subscribed on this service."
-      rejected_charge: "You already subscribed on this service. Please find more games here: %s"
-      blacklisted: "Sorry, service not available."
-      postpaid: "Sorry, service not available."
-      unsubscribe: "You have been unsubscribed."
 
   beeline:
     enabled: true
@@ -73,7 +64,6 @@ consumer:
   reconnect_delay: 10
 
 publisher:
-  pending_buffer_path: /home/centos/linkit/mt_manager_pending.json
   chan_capacity: 100
   conn:
     user: linkit
