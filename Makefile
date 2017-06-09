@@ -39,20 +39,19 @@ co:
 	cd qlistener; git checkout $1; cd - ;\
 
 tag:
-	cd db; git commit -a -m 'inmem: no operator, no ips' ; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags; cd - ; \
-	cd deploy; git commit -a -m 'inmem: no operator, no ips' ; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags; cd - ; \
-	cd go-acceptor-structs; git commit -a -m 'inmem: no operator, no ips' ; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags; cd - ; \
-	cd go-contentd; git commit -a -m 'inmem: no operator, no ips' ; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags; cd - ; \
-	cd go-dispatcherd; git commit -a -m 'inmem: no operator, no ips' ; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags;  cd - ; \
-	cd go-inmem;  git commit -a -m 'inmem: no operator, no ips'; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags; cd - ; \
-	cd go-jobs; git commit -a -m 'inmem: no operator, no ips' ; git push; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags; cd - ; \
-	cd go-mt;  git commit -a -m 'inmem: no operator, no ips'; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags; cd - ;
-	cd go-operator; git commit -a -m 'inmem: no operator, no ips' ; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags;cd - ;
-	cd go-partners; git commit -a -m 'inmem: no operator, no ips' ; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags;cd - ;
-	cd go-pixel; git commit -a -m 'inmem: no operator, no ips' ; git push; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags;cd - ;
-	cd go-qlistener; git commit -a -m 'inmem: no operator, no ips' ; git push; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags; cd - ;\
-	cd go-reporter; git commit -a -m 'inmem: no operator, no ips' ; git push ; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags;cd - ;
-	cd go-utils;  git commit -a -m 'inmem: no operator, no ips' ; git push; git tag -a 1.8 -m "inmem: no operator, no ips"; git push --tags; cd - ;\
+	cd db; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
+	cd deploy; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
+	cd go-acceptor-structs; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
+	cd go-contentd; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
+	cd go-dispatcherd; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags;  cd - ; \
+	cd go-mid;  git commit -a -m 'mid v3 beeline'; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
+	cd go-jobs; git commit -a -m 'mid v3 beeline' ; git push; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
+	cd go-mt;  git commit -a -m 'mid v3 beeline'; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ;
+	cd go-operator; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags;cd - ;
+	cd go-partners; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags;cd - ;
+	cd go-pixel; git commit -a -m 'mid v3 beeline' ; git push; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags;cd - ;
+	cd go-qlistener; git commit -a -m 'mid v3 beeline' ; git push; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ;\
+	cd go-utils;  git commit -a -m 'mid v3 beeline' ; git push; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ;\
 
 push:
 	cd contentd;  git push; cd - ; \
