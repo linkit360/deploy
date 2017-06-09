@@ -29,8 +29,8 @@ publisher:
 
 db:
   conn_ttl: -1
-  max_open_conns: 15
-  max_idle_conns: 10
+  max_open_conns: 2
+  max_idle_conns: 1
   timeout: 30
   name: linkit_qrtech
   user: linkit
@@ -42,8 +42,8 @@ db:
 
 db_slave:
   conn_ttl: -1
-  max_open_conns: 15
-  max_idle_conns: 10
+  max_open_conns: 2
+  max_idle_conns: 2
   timeout: 30
   name: linkit_qrtech
   user: linkit

@@ -41,7 +41,6 @@ co:
 tag:
 	cd db; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
 	cd deploy; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
-	cd go-acceptor-structs; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
 	cd go-contentd; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \
 	cd go-dispatcherd; git commit -a -m 'mid v3 beeline' ; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags;  cd - ; \
 	cd go-mid;  git commit -a -m 'mid v3 beeline'; git push ; git tag -a 1.8.3 -m "mid v3 beeline"; git push --tags; cd - ; \

@@ -75,8 +75,8 @@ service:
 
 db:
   conn_ttl: -1
-  max_open_conns: 15
-  max_idle_conns: 10
+  max_open_conns: 4
+  max_idle_conns: 1
   timeout: 30
   name: linkit_cheese
   user: linkit

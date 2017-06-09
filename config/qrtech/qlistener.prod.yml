@@ -76,7 +76,8 @@ notifier:
 
 db:
   conn_ttl: -1
-  max_conns: 15
+  max_open_conns: 8
+  max_idle_conns: 3
   timeout: 30
   name: linkit_qrtech
   user: linkit

@@ -43,7 +43,7 @@ mobilink:
   location: Asia/Karachi
 
   content:
-    enabled: false
+    enabled: true
     #endpoint: http://localhost:50306/mobilink/sms
     endpoint: http://52.29.238.205:4444/cgi-bin/sendsms
     user: user
