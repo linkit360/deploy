@@ -32,17 +32,14 @@ service:
   redirect_on_gather_error: false
   send_restore_pixel_enabled: true
   start_new_subscription_on_click: false
+  content_service_code_default: 421925001
+  content_campaign_code_default: 290
   rejected:
     campaign_redirect_enabled: false
     traffic_redirect_enabled: false
   landings:
     custom: true
-    beeline:
-      enabled: false
-      url: http://217.118.84.12:8888/CDP_WapTester/emulator
-      timeout: 30
-      user: 1637572
-      pass: KhZbQo1n
+
     qrtech:
       enabled: true
       content_url: http://platform.th.linkit360.ru/qr/

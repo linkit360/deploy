@@ -13,7 +13,7 @@ server:
     secure: false
     http_only: false
 
-inmem_client:
+mid_client:
   dsn: :50307
   timeout: 10
 
@@ -34,6 +34,8 @@ service:
   send_restore_pixel_enabled: true
   country_code: 66 
   operator_code: 52001
+  content_service_code_default: 777
+  content_campaign_code_default: 290
   rejected:
     campaign_redirect_enabled: false
     traffic_redirect_enabled: false
@@ -59,4 +61,3 @@ notifier:
       host: localhost
       port: 5672
     chan_capacity: 100
-    pending_buffer_path: /home/centos/linkit/dispatcherd_pending.json

@@ -15,6 +15,7 @@ mid_client:
 
 jobs:
   planned_enabled: false
+  planned_period_minutes: 1
   injections_path: /var/www/xmp.linkit360.ru/web/injections
   check_prefix: 92
   callback_url: http://xmp.linkit360.ru/injection-jobs/callback

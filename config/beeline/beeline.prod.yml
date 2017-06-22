@@ -2,8 +2,10 @@ app_name: beeline
 
 server:
   port: 50306
-  threads_count: 1
 
+mid_client:
+  dsn: :50307
+  timeout: 10
 
 beeline:
   name: beeline

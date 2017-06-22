@@ -23,7 +23,6 @@ jobs:
 
 
 publisher:
-  pending_buffer_path: /home/centos/linkit/jobs_pending.json
   chan_capacity: 100
   conn:
     user: linkit

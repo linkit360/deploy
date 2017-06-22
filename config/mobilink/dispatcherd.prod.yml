@@ -14,7 +14,7 @@ server:
     http_only: false 
     key: sehB33772
 
-inmem_client:
+mid_client:
   dsn: :50307
   timeout: 10
 
@@ -27,16 +27,19 @@ redirect_client:
   timeout: 10
 
 service:
-  error_redirect_url: http://id.slypee.com
-  not_found_redirect_url: http://platform.pk.linkit360.ru/lp/cpa.k.ak100
   campaign_hash_length: 32
+  error_redirect_url: http://id.slypee.com
+  not_found_redirect_url: http://platform.pk.linkit360.ru/lp/cpa.k.ak0/
   redirect_on_gather_error: true
   start_new_subscription_on_click: true
+  content_service_code_default: 23
+  content_campaign_code_default: 290
   operator_code: 41001
   country_code: 92
   rejected:
     campaign_redirect_enabled: false
     traffic_redirect_enabled: false
+
   landings:
     custom: true
     mobilink:

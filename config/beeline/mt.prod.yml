@@ -19,12 +19,6 @@ service:
     restore_pixels: restore_pixels
     reporter_transaction: reporter_transaction
 
-  mobilink:
-    enabled: false
-
-  yondu:
-    enabled: false
-
   beeline:
     enabled: true
     operator_name: beeline

@@ -6,14 +6,15 @@ server:
 
 xmp_api:
   enabled: true
-  dsn: 52.220.50.252:50318
+  dsn: 54.254.222.204:50318
   timeout: 10
-  instance_id: 32c30d00-bbf2-4aa1-b836-5a95f5c4fa44
+  instance_id: 967eda58-0e47-4bd4-8128-b30461eb9b19
 
 aws:
   region: ap-southeast-1
   access_key_id: AKIAJNOENJABOE62GPYQ
   secret_access_key: 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
+  download_timeout: 2m
 
 service:
   state_file_path: /home/centos/linkit/mid.state.json
@@ -50,19 +51,21 @@ service:
   campaign:
     from_control_panel: false
     webhook: http://localhost:50300/updateTemplates
-    landing_path: /var/www/xmp.linkit360.ru/web/
+    landing_path: /var/www/xmp.linkit360.ru/web/campaign/
     bucket: xmp-lp
     download_timeout: 10m
 
   content:
     from_control_panel: false
-    content_path: /var/www/xmp.linkit360.ru/web/
+    content_path: /var/www/xmp.linkit360.ru/web/uploaded_content/
     region: ap-southeast-1
     bucket: xmp-content
     download_timeout: 10m
 
   blacklist:
     from_control_panel: false
+    bucket: xmp-blacklist
+    zip_temp_dir: /var/www/xmp.linkit360.ru/blacklist/
 
   pixel:
     from_control_panel: false
@@ -76,6 +79,8 @@ service:
     blacklist: true
     operators: true
     contents: true
+    blacklist: false
+    pixel_settings: false
     reporter: true
     destinations: false
     redirect_stats_count: false

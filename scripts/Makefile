@@ -106,6 +106,7 @@ j:
 mobilink:
 	ssh -i ~/.ssh/mobilink_centos.pem centos@52.66.23.201 mv /home/centos/linkit/*-linux-amd64 /home/centos/linkit/prev/
 	scp -i ~/.ssh/mobilink_centos.pem ~/linkit/*-linux-amd64 centos@52.66.23.201:/home/centos/linkit/
+	scp -i ~/.ssh/mobilink_centos.pem ~/linkit/*yml centos@52.66.23.201:/home/centos/linkit/
 	# ssh -i ~/.ssh/mobilink_centos.pem centos@52.66.23.201 cd /home/centos/linkit/ ; rm acceptor* cheese* beeline* yondu* qrtech* stat_complaints* retries
 
 yondu:
@@ -186,7 +187,7 @@ qrtech:
 	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/*-linux-amd64 /home/centos/qrtech/prev/
 	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/*-linux-amd64 centos@52.220.98.67:/home/centos/qrtech/
 	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/*yml centos@52.220.98.67:/home/centos/qrtech/
-	ssh -i ~/.ssh/mobilink_centos.pem centos@52.66.23.201 cd /home/centos/qrtech/ ; rm acceptor* cheese* beeline* yondu* mobilink*
+	ssh -i ~/.ssh/mobilink_centos.pem centos@52.66.23.201 cd /home/centos/qrtech/ ; rm partners* cheese* beeline* yondu* mobilink*
 
 qrtechop:
 	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/qrtech-linux-amd64 /home/centos/qrtech/prev/
@@ -220,9 +221,9 @@ qrtechq:
 	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/qlistener-linux-amd64 /home/centos/qrtech/prev/
 	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/qlistener-linux-amd64 centos@52.220.98.67:/home/centos/qrtech/
 
-qrtechr:
-	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/reporter-linux-amd64 /home/centos/qrtech/prev/
-	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/reporter-linux-amd64 centos@52.220.98.67:/home/centos/qrtech/
+qrtechc:
+	ssh -i ~/.ssh/cheese_mobile_v2.pem centos@52.220.98.67  mv /home/centos/qrtech/contentd-linux-amd64 /home/centos/qrtech/prev/
+	scp -i ~/.ssh/cheese_mobile_v2.pem ~/linkit/contentd-linux-amd64 centos@52.220.98.67:/home/centos/qrtech/
 
 
 beeline:
@@ -247,8 +248,8 @@ beelineq:
 	scp -i ~/.ssh/beeline.pem ~/linkit/qlistener-linux-amd64 centos@52.59.112.128:/home/centos/linkit/
 
 beelinei:
-	ssh -i ~/.ssh/beeline.pem centos@52.59.112.128 mv /home/centos/linkit/inmem-linux-amd64 /home/centos/linkit/prev/
-	scp -i ~/.ssh/beeline.pem ~/linkit/inmem-linux-amd64 centos@52.59.112.128:/home/centos/linkit/
+	ssh -i ~/.ssh/beeline.pem centos@52.59.112.128 mv /home/centos/linkit/mid-linux-amd64 /home/centos/linkit/prev/
+	scp -i ~/.ssh/beeline.pem ~/linkit/mid-linux-amd64 centos@52.59.112.128:/home/centos/linkit/
 
 beeliner:
 	ssh -i ~/.ssh/beeline.pem centos@52.59.112.128 mv /home/centos/linkit/reporter-linux-amd64 /home/centos/linkit/prev/
@@ -257,6 +258,20 @@ beeliner:
 beelinej:
 	ssh -i ~/.ssh/beeline.pem centos@52.59.112.128 mv /home/centos/linkit/jobs-linux-amd64 /home/centos/linkit/prev/
 	scp -i ~/.ssh/beeline.pem ~/linkit/jobs-linux-amd64 centos@52.59.112.128:/home/centos/linkit/
+
+
+rc:
+	ssh -i ~/.ssh/platform_release_candidate.pem centos@13.126.24.36 mv ~/linkit/*-linux-amd64 /home/centos/linkit/prev
+	scp -i ~/.ssh/platform_release_candidate.pem ~/linkit/*-linux-amd64 centos@13.126.24.36:/home/centos/linkit/
+
+rcm:
+	ssh -i ~/.ssh/platform_release_candidate.pem centos@13.126.24.36 mv ~/linkit/mid-linux-amd64 /home/centos/linkit/prev/
+	scp -i ~/.ssh/platform_release_candidate.pem ~/linkit/mid-linux-amd64 centos@13.126.24.36:/home/centos/linkit/
+
+rcd:
+	ssh -i ~/.ssh/platform_release_candidate.pem centos@13.126.24.36 mv ~/linkit/dispatcherd-linux-amd64 /home/centos/linkit/prev/
+	scp -i ~/.ssh/platform_release_candidate.pem ~/linkit/dispatcherd-linux-amd64 centos@13.126.24.36:/home/centos/linkit/
+
 
 .PHONY: build tag commit yondu cheese beeline qrtech mobilink
 
@@ -270,7 +285,6 @@ diffconfig:
 #     diff -u qrtech.prod.yml qrtech.yml
 #     diff -u mt.yml mt.prod.yml
 #     diff -u mid.yml mid.prod.yml
-#     diff -u inmem.prod.yml inmem.yml
 #     diff -u pixel.prod.yml pixel.yml
 #     diff -u qlistener.prod.yml qlistener.yml
 

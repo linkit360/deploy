@@ -6,15 +6,23 @@ server:
 
 xmp_api:
   enabled: true
-  dsn: 52.220.50.252:50318
+  dsn: 54.254.222.204:50318
+  client_port: 50319
   timeout: 10
-  instance_id: 299a3335-6b05-4613-8fd9-0dbfb94db6ee 
+  instance_id: d7a14472-883a-43ac-98d5-6d4a41f130d3
+
+aws:
+  region: ap-southeast-1
+  access_key_id: AKIAJNOENJABOE62GPYQ
+  secret_access_key: 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
+  download_timeout: 2m
+  download_concurrency: 1
 
 service:
+  region: ap-southeast-1
   state_file_path: /home/centos/linkit/mid.state.json
   unique_days: 10
   static_path: /var/www/xmp.linkit360.ru/web/
-  region: ap-southeast-1
 
   queue:
     reporter_hit:
@@ -42,33 +50,35 @@ service:
       threads_count: 10
 
   service:
-    from_control_panel: false
+    from_control_panel: true
 
   campaign:
-    from_control_panel: false
-    webhook: http://localhost:50300/updateTemplates
-    landing_path: /var/www/xmp.linkit360.ru/web/
+    from_control_panel: true
+    landing_path: /var/www/xmp.linkit360.ru/web/campaign/
     bucket: xmp-lp
-    download_timeout: 10m
+    webhook: http://localhost:50300/updateTemplates
 
   content:
-    enabled: true
-    from_control_panel: false
-    content_path: /var/www/xmp.linkit360.ru/web/
-    region: ap-southeast-1
+    from_control_panel: true
+    content_path: /var/www/xmp.linkit360.ru/web/uploaded_content/
     bucket: xmp-content
-    download_timeout: 10m
 
   blacklist:
     from_control_panel: false
 
   pixel:
-    from_control_panel: false
+    from_control_panel: true
 
   operator:
-    from_control_panel: false
+    from_control_panel: true
 
   enabled:
+    services: false
+    campaigns: false
+    blacklist: false
+    operators: false
+    contents: false
+    pixel_settings: true
     reporter: true
     destinations: false
     redirect_stats_count: false
@@ -94,3 +104,4 @@ consumer:
       port: 5672
   binding_key: ""
   reconnect_delay: 10w
+
