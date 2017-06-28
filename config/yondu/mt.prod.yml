@@ -3,7 +3,7 @@ app_name: mt
 server:
   port: 50305
 
-inmem_client:
+mid_client:
   dsn: :50307
   timeout: 10
 
@@ -11,16 +11,13 @@ content_client:
   dsn: :50302
   timeout: 10
 
-reporter_client:
-  enabled: true
-  dsn: :50315
-  timeout: 10
-
 service:
   queues:
     pixels: pixels
     db_actions: mt_manager
     transaction_log: transaction_log
+    restore_pixels: restore_pixels
+    reporter_transaction: reporter_transaction
 
   yondu:
     enabled: true
@@ -32,12 +29,6 @@ service:
     content:
       send_enabled: true
       url: http://platform.ph.linkit360.ru/u/
-    texts:
-      rejected: "You already subscribed on this service."
-      rejected_charge: "You already subscribed on this service. Please find more games here: %s"
-      blacklisted: "Sorry, service not available."
-      postpaid: "Sorry, service not available."
-      unsubscribe: "You have been unsubscribed."
     periodic:
       enabled: true
       period: 600
@@ -96,7 +87,6 @@ consumer:
   reconnect_delay: 10
 
 publisher:
-  pending_buffer_path: /home/centos/linkit/mt_manager_pending.json
   chan_capacity: 1200
   conn:
     user: linkit

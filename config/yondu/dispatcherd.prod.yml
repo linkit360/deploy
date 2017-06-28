@@ -13,12 +13,12 @@ server:
     secure: false
     http_only: false
 
-content_client:
-  dsn: :50301
+mid_client:
+  dsn: :50307
   timeout: 10
 
-inmem_client:
-  port: :50307
+content_client:
+  dsn: :50301
   timeout: 10
 
 service:
@@ -31,18 +31,14 @@ service:
   rejected:
     campaign_redirect_enabled: false
     traffic_redirect_enabled: false
-  landings:
-    custom: false
-    beeline:
-      enabled: false
-    qrtech:
-      enabled: false
 
 notifier:
   queues:
     access_campaign: access_campaign
     user_actions: user_actions
     content_sent: content_sent
+    pixel_sent: pixel_sent
+    traffic_redirects: traffic_redirects
 
   rbmq:
     conn:
@@ -51,4 +47,3 @@ notifier:
       host: localhost
       port: 5672
     chan_capacity: 100
-    pending_buffer_path: /home/centos/linkit/dispatcherd_pending.json

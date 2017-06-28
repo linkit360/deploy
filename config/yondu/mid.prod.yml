@@ -1,14 +1,17 @@
-app_name: mid
+app_name: inmem
 
 server:
   rpc_port: 50307
   http_port: 50308
 
+
 xmp_api:
   enabled: true
   dsn: 54.254.222.204:50318
+  # dsn: 52.220.50.252:50318
+  client_port: 50319
   timeout: 10
-  instance_id: 4b806752-a57f-474d-8755-56b82e6c53ea
+  instance_id: i9812371987418947
 
 aws:
   region: ap-southeast-1
@@ -21,7 +24,6 @@ service:
   state_file_path: /home/centos/linkit/mid.state.json
   unique_days: 10
   static_path: /var/www/xmp.linkit360.ru/web/
-
   queue:
     reporter_hit:
       enabled: true
@@ -85,14 +87,14 @@ service:
 
 db:
   conn_ttl: -1
-  max_open_conns: 10
-  max_idle_conns: 3
+  max_open_conns: 15
+  max_idle_conns: 10
   timeout: 30
-  name: pk_mobilink
-  user: linkit_mobilink
-  pass: A0kZN8pUAs63wePezz
+  name: linkit_yondu
+  user: linkit
+  pass: E0kZN8pUAs63wePepf
   port: 5432
-  host: linkit-mobilink.cb2q7f7mvbwr.ap-south-1.rds.amazonaws.com
+  host: linkit-prod.ceta2yrq1zco.ap-southeast-1.rds.amazonaws.com
   ssl_mode: disable
   table_prefix: xmp_
 

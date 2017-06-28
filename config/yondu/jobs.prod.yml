@@ -3,24 +3,25 @@ app_name: jobs
 server:
   port: 50303
 
-jobs:
-  planned_enabled: false
-  injections_path: /var/www/xmp.linkit360.ru/web/injections
-  log_path: /var/log/linkit/
-  check_prefix: 92
-  callback_url: http://xmp.linkit360.ru/injection-jobs/callback
-
 metrics:
   allowed_db_size: 100001838210
   db:
   - linkit_yondu
   - linkit_cheese
 
-inmem_client:
+mid_client:
+  dsn: :50307
   timeout: 10
 
+jobs:
+  planned_enabled: false
+  planned_period_minutes: 1
+  injections_path: /var/www/xmp.linkit360.ru/web/injections
+  log_path: /var/log/linkit/
+  check_prefix: 92
+  callback_url: http://xmp.linkit360.ru/injection-jobs/callback
+
 publisher:
-  pending_buffer_path: /home/centos/linkit/jobs_pending.json
   chan_capacity: 100
   conn:
     user: linkit

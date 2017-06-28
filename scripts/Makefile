@@ -41,6 +41,7 @@ co:
 tag:
 	cd db; git commit -a -m 'campaign code removed' ; git push ; git tag -a 1.8.4 -m "campaign code removed"; git push --tags; cd - ; \
 	cd deploy; git commit -a -m 'campaign code removed' ; git push ; git tag -a 1.8.4 -m "campaign code removed"; git push --tags; cd - ; \
+	cd mon; git commit -a -m 'campaign code removed' ; git push ; git tag -a 1.8.4 -m "campaign code removed"; git push --tags; cd - ; \
 	cd go-contentd; git commit -a -m 'campaign code removed' ; git push ; git tag -a 1.8.4 -m "campaign code removed"; git push --tags; cd - ; \
 	cd go-dispatcherd; git commit -a -m 'campaign code removed' ; git push ; git tag -a 1.8.4 -m "campaign code removed"; git push --tags;  cd - ; \
 	cd go-mid;  git commit -a -m 'campaign code removed'; git push ; git tag -a 1.8.4 -m "campaign code removed"; git push --tags; cd - ; \
@@ -110,8 +111,10 @@ mobilink:
 	# ssh -i ~/.ssh/mobilink_centos.pem centos@52.66.23.201 cd /home/centos/linkit/ ; rm acceptor* cheese* beeline* yondu* qrtech* stat_complaints* retries
 
 yondu:
-	# ssh -i ~/.ssh/yondu.pem centos@52.76.153.135  mv /home/centos/linkit/*-linux-amd64 /home/centos/linkit/prev/
+	ssh -i ~/.ssh/yondu.pem centos@52.76.153.135  mv /home/centos/linkit/*-linux-amd64 /home/centos/linkit/prev/
 	scp -i ~/.ssh/yondu.pem ~/linkit/*-linux-amd64 centos@52.76.153.135:/home/centos/linkit/
+	scp -i ~/.ssh/yondu.pem ~/linkit/*yml centos@52.76.153.135:/home/centos/linkit/
+	# scp -i ~/.ssh/yondu.pem ~/linkit/*yml centos@52.76.153.135:/home/centos/linkit/; cd /home/centos/linkit/ ; rm acceptor* cheese* beeline* mobilink* qrtech* stat_complaints*
 
 yonduop:
 	ssh -i ~/.ssh/yondu.pem centos@52.76.153.135 mv /home/centos/linkit/yondu-linux-amd64 /home/centos/linkit/prev/

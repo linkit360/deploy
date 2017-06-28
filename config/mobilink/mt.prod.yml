@@ -32,17 +32,17 @@ service:
     periodic:
       enabled: true
       period: 3600
-      fetch_limit: 100
+      fetch_limit: 10
 
     recharge:
       enabled: true
+      period: 3600
       fetch_limit: 10
-      fetch_limit: 100
 
     content:
       enabled: true
       fetch_period_seconds: 3600
-      fetch_limit: 100
+      fetch_limit: 10
       url: http://platform.pk.linkit360.ru/u/
 
     new:

@@ -4,14 +4,14 @@ server:
   rpc_port: 50301
   http_port: 50302
 
+mid_client:
+  dsn: :50307
+  timeout: 10
+
 service:
   retry_count: 10
-  unique_urls_salt: !&5x~_~R_-9Uri
   queues:
     unique_urls: unique_urls
-
-inmem_client:
-  timeout: 10
 
 notifier:
   conn:
@@ -20,4 +20,3 @@ notifier:
     host: localhost
     port: 5672
   chan_capacity: 100
-  pending_buffer_path: /home/centos/linkit/contentd_pending.json
