@@ -1,4 +1,4 @@
-app_name: inmem
+app_name: mid
 
 server:
   rpc_port: 50307
@@ -8,7 +8,6 @@ server:
 xmp_api:
   enabled: true
   dsn: 54.254.222.204:50318
-  # dsn: 52.220.50.252:50318
   client_port: 50319
   timeout: 10
   instance_id: i9812371987418947
@@ -64,7 +63,7 @@ service:
     bucket: xmp-content
 
   blacklist:
-    from_control_panel: true
+    from_control_panel: false
     bucket: xmp-blacklist
     zip_temp_dir: /var/www/xmp.linkit360.ru/blacklist/
 
@@ -80,7 +79,7 @@ service:
     blacklist: false
     operators: false
     contents: false
-    pixel_settings: true
+    pixel_settings: false
     reporter: true
     destinations: false
     redirect_stats_count: false
